@@ -30,7 +30,7 @@ The `cas_service` Ansible module manages CAS service configurations by creating 
 ### Creating a CAS Service Configuration
 ```yaml
 - name: Create a CAS service configuration
-  cas_service:
+  philip860.apereo_cas.cas_service:
     state: present
     entityID: "https://stamford.uconn.edu"
     service_id: "10000440"
@@ -49,7 +49,7 @@ The `cas_service` Ansible module manages CAS service configurations by creating 
 ### Removing a CAS Service Configuration
 ```yaml
 - name: Remove a CAS service configuration
-  cas_service:
+  philip860.apereo_cas.cas_service:
     state: absent
     service_registry_path: "/etc/cas/services"
     service_id: "10000440"
