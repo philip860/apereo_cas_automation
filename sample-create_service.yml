@@ -15,9 +15,9 @@
         required_NameId_Format: "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified"
         nameID_Attribute: "uid"
         attributes: 
-        "FirstName": "FirstName"
-        "LastName": "LastName"
-        "GivenName-caps": "GivenName"
-        "uid-NameID": "uid"
-        "EmailAddress": "EmailAddress"
+          "FirstName": "FirstName"
+          "LastName": "LastName"
+          "GivenName-caps": "GivenName"
+          "uid-NameID": "uid"
+          "EmailAddress": "EmailAddress"
   
