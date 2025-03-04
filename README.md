@@ -32,7 +32,7 @@ The `cas_saml_service` Ansible module manages CAS SAML service configurations by
 ### Creating a CAS SAML Service Configuration
 ```yaml
 - name: Create a CAS SAML service configuration
-  cas_saml_service:
+  philip860.apereo_cas.cas_saml_service:
     state: present
     entityID: "http://sso.example.com/shibboleth"
     service_registry_path: "/etc/cas/saml"
@@ -51,9 +51,9 @@ The `cas_saml_service` Ansible module manages CAS SAML service configurations by
 ### Removing a CAS SAML Service Configuration
 ```yaml
 - name: Remove a CAS SAML service configuration
-  cas_saml_service:
+  philip860.apereo_cas.cas_saml_service:
     state: absent
-    service_registry_path: "/etc/cas/saml"
+    service_registry_path: "/etc/cas/saml/service_10000538.json"
 ```
 
 ## Return Values
