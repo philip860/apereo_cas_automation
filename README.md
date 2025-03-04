@@ -55,6 +55,7 @@ The `cas_saml_service` Ansible module manages CAS SAML service configurations by
     state: absent
     service_registry_path: "/etc/cas/saml/service_10000538.json"
 ```
+**Note:** When removing a CAS SAML service configuration, make sure to specify the full path to the service file (e.g., `/etc/cas/saml/service_10000538.json`) rather than just the directory (e.g., `/etc/cas/saml`). Failing to do so may result in deleting the entire directory and all of its contents.
 
 ## Return Values
 
