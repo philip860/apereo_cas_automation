@@ -43,10 +43,10 @@ tags: []
 dependencies: {}
 
 # The URL of the originating SCM repository
-repository: http://example.com/repository
+repository: https://github.com/philip860/apereo_cas_automation
 
 # The URL to any online docs
-documentation: http://docs.example.com
+documentation: https://github.com/philip860/apereo_cas_automation/blob/main/README.md
 
 # The URL to the homepage of the collection/project
 homepage: http://example.com
