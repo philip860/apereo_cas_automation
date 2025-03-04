@@ -4,7 +4,7 @@
 
 
     - name: Create a CAS service configuration
-      cas_service:
+      philip860.apereo_cas.cas_service:
         state: present
         entityID: "https://stamford.uconn.edu"
         service_id: "10000440"
