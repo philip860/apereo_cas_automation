@@ -2,4 +2,4 @@
 requires_ansible: ">=2.9"
 plugin_routing:
   modules:
-    cas_saml_service: apereo_cas.plugins.modules.cas_saml_service
+    cas_saml_service: philip860.apereo_cas.plugins.modules.cas_saml_service
