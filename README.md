@@ -53,7 +53,7 @@ Refer to the individual module documentation:
     service_id: "10000440"
     service_registry_path: "/etc/cas/services"
     service_name: "stamford.uconn.edu - SSO"
-    service_description: "stamford.uconn.edu Prod - Adam Berkowitz"
+    service_description: "stamford.uconn.edu Prod - Phil Duncan"
     evaluationOrder: 1
     allowed_attributes:
       - netid
