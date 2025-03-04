@@ -1,0 +1,20 @@
+- name: Generate SAML Service File
+  hosts: localhost
+  tasks:
+
+
+    - name: Create a CAS service configuration
+      cas_service:
+        state: present
+        entityID: "https://stamford.uconn.edu"
+        service_id: "10000440"
+        service_registry_path: "/root/demo_cas/"
+        service_name: "stamford.uconn.edu - SSO"
+        service_description: "stamford.uconn.edu Prod - philipduncan860@gmail.com"
+        evaluationOrder: 1
+        allowed_attributes:
+          - netid
+          - givenName
+          - sn
+          - uconnPersonAffiliation
+          - email

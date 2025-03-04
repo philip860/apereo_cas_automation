@@ -1,0 +1,9 @@
+- name: Delete SAML Service File
+  hosts: localhost
+  tasks:
+
+    - name: Delete CAS SAML service configuration
+      philip860.apereo_cas.cas_service:
+        service_registry_path: "/root/demo_cas/service_10000440.json"
+        state: absent
+
