@@ -1,18 +1,23 @@
-- name: Create a CAS SAML service configuration
-  cas_saml_service:
-    state: present
-    entityID: "https://duncan-networks.com/"
-    metadata_location: "file:/opt/configuration_v4/metadata/individual-metadata.xml"
-    service_registry_path: "/root/demo_cas"
-    service_id: "10000538"
-    service_name: "Example SSO"
-    service_description: "ITS duncan-networks.com SSO | @philipduncan860@gmail.com"
-    required_NameId_Format: "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified"
-    nameID_Attribute: "uid"
-    attributes: 
-    "FirstName": "FirstName"
-    "LastName": "LastName"
-    "GivenName-caps": "GivenName"
-    "uid-NameID": "uid"
-    "EmailAddress": "EmailAddress"
+- name: Generate SAML Service File
+  hosts: localhost
+  tasks:
+
+
+    - name: Create a CAS SAML service configuration
+      cas_saml_service:
+        state: present
+        entityID: "https://duncan-networks.com/"
+        metadata_location: "file:/opt/configuration_v4/metadata/individual-metadata.xml"
+        service_registry_path: "/root/demo_cas"
+        service_id: "10000538"
+        service_name: "Example SSO"
+        service_description: "ITS duncan-networks.com SSO | @philipduncan860@gmail.com"
+        required_NameId_Format: "urn:oasis:names:tc:SAML:2.0:nameid-format:unspecified"
+        nameID_Attribute: "uid"
+        attributes: 
+        "FirstName": "FirstName"
+        "LastName": "LastName"
+        "GivenName-caps": "GivenName"
+        "uid-NameID": "uid"
+        "EmailAddress": "EmailAddress"
   
