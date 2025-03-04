@@ -68,8 +68,7 @@ Refer to the individual module documentation:
 - name: Remove a CAS service configuration
   philip860.apereo_cas.cas_service:
     state: absent
-    service_registry_path: "/etc/cas/services"
-    service_id: "10000440"
+    service_registry_path: "/etc/cas/services/service_10000440.json"
 ```
 
 ### Creating a CAS SAML Service Configuration
