@@ -4,15 +4,14 @@
 The `cas_saml_service` Ansible module manages CAS SAML service configurations by creating or removing service registry files.
 
 ## Features
-- Create or update a CAS SAML service configuration.
-- Remove an existing CAS SAML service configuration.
-- Validate required parameters before processing.
-- Ensure uniqueness of `service_id` within the service registry.
-
-## Requirements
-- Ansible 2.9+
-- Python 3.x
-- The module should be placed in the Ansible `library/` directory or within a custom module path.
+- **Create or Update CAS SAML Service Configurations**: Ensures the configuration file is created or updated based on user inputs.
+- **Remove CAS SAML Service Configurations**: Deletes service configuration files when no longer needed.
+- **Ensures Unique Service ID**: Prevents duplicate `service_id` entries within the registry.
+- **Validates Required Parameters**: Checks for required fields before executing actions.
+- **Manages SAML Attributes**: Allows attribute mapping for SAML authentication.
+- **Supports Custom Metadata Location**: Enables specifying external metadata files.
+- **Handles Non-Existent Directories**: Automatically creates missing service registry directories.
+- **Supports Check Mode**: Allows running without making actual changes.
 
 ## Module Parameters
 
@@ -57,21 +56,6 @@ The `cas_saml_service` Ansible module manages CAS SAML service configurations by
     service_registry_path: "/etc/cas/saml"
 ```
 
-## Installation and Execution
-1. Copy the `cas_saml_service.py` file into your Ansible `library/` directory.
-   ```sh
-   mkdir -p ansible/library/
-   cp cas_saml_service.py ansible/library/
-   ```
-2. Ensure the module is executable:
-   ```sh
-   chmod +x ansible/library/cas_saml_service.py
-   ```
-3. Run your Ansible playbook:
-   ```sh
-   ansible-playbook my_playbook.yml
-   ```
-
 ## Return Values
 
 | Key                | Type   | Description |
@@ -83,5 +67,5 @@ The `cas_saml_service` Ansible module manages CAS SAML service configurations by
 This module is licensed under the GNU General Public License v3.0+.
 
 ## Author
-- Your Name (@yourGitHubHandle)
+- Your Name (@philipduncan860@gmail.com)
 
