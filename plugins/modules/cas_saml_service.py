@@ -118,7 +118,7 @@ def run_module():
         service_description=dict(type='str', required=False),
         required_NameId_Format=dict(type='str', required=False),
         nameID_Attribute=dict(type='str', required=False),
-        attributes=dict(type='dict', required=False)
+        attributes=dict(type='dict', required=False, default={})
     )
 
     module = AnsibleModule(
@@ -130,18 +130,26 @@ def run_module():
     service_registry_path = module.params['service_registry_path']
     service_id = module.params['service_id'] if module.params['service_id'] else str(random.randint(1000, 9999))
 
+    # Ensure required parameters are correctly validated
     if state == 'present':
-        required_params = ['entityID', 'service_id', 'service_description', 'required_NameId_Format', 'nameID_Attribute', 'attributes', 'metadata_location']
-        missing_params = [param for param in required_params if not module.params.get(param)]
+        required_params = ['entityID', 'service_description', 'required_NameId_Format', 'nameID_Attribute', 'metadata_location']
+        missing_params = [param for param in required_params if not isinstance(module.params.get(param), str)]
         if missing_params:
-            module.fail_json(msg=f"Missing required parameters for state=present: {', '.join(missing_params)}")
+            module.fail_json(msg=f"Missing or invalid parameters for state=present: {', '.join(missing_params)}")
 
+        # Ensure attributes is a dictionary
+        attributes = module.params.get('attributes', {})
+        if not isinstance(attributes, dict):
+            module.fail_json(msg="Invalid type for 'attributes': Expected dict, got {}".format(type(attributes).__name__))
+
+        # Ensure service registry path exists
         if not os.path.exists(service_registry_path):
-            os.makedirs(service_registry_path)
-        
+            os.makedirs(service_registry_path, exist_ok=True)
+
         if not os.path.isdir(service_registry_path):
             module.fail_json(msg=f"{service_registry_path} exists but is not a directory.")
 
+        # Check for duplicate service_id
         for filename in os.listdir(service_registry_path):
             file_path = os.path.join(service_registry_path, filename)
             if os.path.isfile(file_path):
@@ -153,7 +161,6 @@ def run_module():
                 except json.JSONDecodeError:
                     continue
         
-        attributes = module.params['attributes']
         structured_attributes = [
             {"attribute_name": key, "attribute_urn": value} for key, value in attributes.items()
         ]
